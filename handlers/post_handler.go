@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"blog_api/models"
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -18,6 +19,7 @@ func NewPostHandler(db *gorm.DB) *PostHandler {
 
 func (h *PostHandler) CreatePost(c echo.Context) error {
 	post := &models.Post{}
+	fmt.Println("post")
 	c.Bind(post)
 
 	h.DB.Create(post)
